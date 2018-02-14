@@ -46,5 +46,4 @@ grid on
 title('Potencia en el tiempo')
 
 %%Energia del circuito en el periodo
-w=trapz(t_v,P_t);
-fprintf('La energia del circuito en un periodo es: %f [jul]', w);
+
