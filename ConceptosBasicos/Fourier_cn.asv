@@ -1,0 +1,7 @@
+function S_cn =Fourier_cn(S_o,S_an,S_bn,max_n)
+
+    for n=1:max_n
+        S_cn(n)=
+    end
+
+end

@@ -76,9 +76,28 @@ if(a==c&&b==d)
         V_bn(n)=Fourier_bn(t_v,T,V_t,n);
         fprintf('b_%d = %f\n',n,V_bn(n));
     end
-   %%Representacion de la serie de fourier
-   fprintf('La serie de fourier del voltaje es: \n'); 
-   serie_Fourier(V_o,V_an,V_bn,max_n);
+    %%Grafica de los elementos de fourier
+    figure
+    stem([V_o V_an])
+    hold on
+    stem([0 V_bn])
+    legend('An','Bn');
+    title('Serie de Fourier');
+   
+    %%Representacion de la serie de fourier
+    fprintf('La serie de fourier del voltaje es: \n'); 
+    serie_Fourier(V_o,V_an,V_bn,max_n);
+   
+    %%Calculo de la serie de Fourier
+    fprintf('\nLos coeficientes Cn de la serie de Fourier es :\n');
+    for n=1:max_n
+        V_cn(n)=Fourier_cn(V_an(n),V_bn(n));
+        fprintf('c_%d = %f\n',n,V_cn(n));
+    end
+    
+    %%Calculo del DAT
+    dat=DAT(V_o,V_cn,max_n);
+    fprintf('El dat de la señal de voltaje es: %f',dat);
 else
     fprintf('El voltaje y la corriente no poseen la misma dimensión');
     fprintf('\nAlgunos calculos no son viables y por tanto se cancela el proceso');
