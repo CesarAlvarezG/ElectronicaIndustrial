@@ -64,7 +64,21 @@ if(a==c&&b==d)
     %%Factor de potencia
     F_p = factor_potencia(P_o,S);
     fprintf('\nEl factor de potencia es: %f ', F_p);
-
+    
+    %%Obtención de representación de Fourier
+    fprintf('La serie de Fourier del voltaje es:\n');
+    max_n=5
+    for n=1:max_n
+        V_an(n)=Fourier_an(t_v,T,V_t,n);
+        fprintf('a_%d = %f\n',n,V_an(n));
+    end
+    for n=1:max_n
+        V_bn(n)=Fourier_bn(t_v,T,V_t,n);
+        fprintf('b_%d = %f\n',n,V_bn(n));
+    end
+   %%Representacion de la serie de fourier
+   fprintf('La serie de fourier del voltaje es: \n'); 
+   serie_Fourier(V_o,V_an,V_bn,max_n);
 else
     fprintf('El voltaje y la corriente no poseen la misma dimensión');
     fprintf('\nAlgunos calculos no son viables y por tanto se cancela el proceso');
