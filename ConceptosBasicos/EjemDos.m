@@ -11,6 +11,6 @@ omega=(2*pi)/T;%Frecuencia angular
 phi=pi/2;%Desface por elemento almacenador de energia
 t=0:T/100:T;
 V_t=170.*sin(omega*t);%Voltaje instantaneo
-I_t=170.*sin(omega*t+phi)./Rl;%Corriente instantanea
+I_t=170.*cos(omega*t)./Rl;%Corriente instantanea
 
 ConceptosBasicos(V_t,I_t,T);
