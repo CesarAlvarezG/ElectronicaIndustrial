@@ -70,7 +70,7 @@ function ConceptosBasicos(V_t,I_t,T)
         figure
         Ap=[V_o V_an];
         Bp=[0 V_bn];
-        [xp yp]=size(Ap)
+        [xp yp]=size(Ap);
         xpn=0:(yp-1);
         stem(xpn,Ap)
         hold on
