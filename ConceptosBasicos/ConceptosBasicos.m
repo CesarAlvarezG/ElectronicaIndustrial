@@ -68,16 +68,25 @@ function ConceptosBasicos(V_t,I_t,T)
         end
         %%Grafica de los elementos de fourier
         figure
-        stem([V_o V_an])
+        Ap=[V_o V_an];
+        Bp=[0 V_bn];
+        [xp yp]=size(Ap)
+        xpn=0:(yp-1);
+        stem(xpn,Ap)
         hold on
-        stem([0 V_bn])
+        stem(xpn,Bp)
         legend('An','Bn');
         title('Serie de Fourier');
 
         %%Representacion de la serie de fourier
         fprintf('\nLa serie de fourier del voltaje es: \n'); 
         serie_Fourier(V_o,V_an,V_bn,max_n);
+        
+        %%Representacion de la serie de fourier
+        fprintf('\nLa serie de fourier del voltaje es: \n'); 
+        serie_FourierCPhi(V_o,V_an,V_bn,max_n);
 
+        
         %%Calculo de la serie de Fourier
         fprintf('\nLos coeficientes Cn de la serie de Fourier son:\n');
         for n=1:max_n
